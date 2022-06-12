@@ -6,7 +6,6 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class AgentDTO {
 
     private String firstname;
@@ -15,4 +14,11 @@ public class AgentDTO {
 
     private String nickname;
 
+    private String password;
+
+    public AgentDTO(String firstname, String lastname, String nickname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.nickname = nickname;
+    }
 }
