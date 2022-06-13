@@ -3,24 +3,17 @@ package com.company.entity;
 import com.company.enums.ProfileRole;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "agent")
+@Table(name = "profile")
 @Getter
 @Setter
-public class AgentEntity extends BaseEntity {
-
-    @Column(nullable = false)
-    private String firstname;
-
-    @Column(nullable = false)
-    private String lastname;
+public class ProfileEntity extends BaseEntity {
 
     @Column(nullable = false, unique = true)
-    private String nickname;
+    private String email;
 
     @Column(nullable = false)
     private String password;

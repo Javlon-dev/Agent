@@ -1,0 +1,13 @@
+### Agent Info - AGENT
+GET http://localhost:4000/api/v1/agent
+
+### Update Agent Bio - AGENT
+PUT http://localhost:4000/api/v1/agent/bio
+Content-Type: application/json
+
+{
+
+}
+
+### Get Agent Logs Date - AGENT
+GET http://localhost:4000/api/v1/agent/list

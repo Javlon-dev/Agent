@@ -1,5 +1,6 @@
 package com.company.service;
 
+import com.company.config.details.EntityDetails;
 import com.company.dto.AgentDTO;
 import com.company.dto.request.AgentRegistrationDTO;
 import com.company.entity.AgentEntity;
@@ -24,13 +25,13 @@ public class AuthService {
     }
 
     public Boolean agentLogin() {
-        AgentEntity entity = new AgentEntity();
+        AgentEntity entity = EntityDetails.getAgent();
         // TODO: 12-Jun-22 Login 
         return loggedDatesService.login(entity);
     }
 
     public Boolean agentLogout() {
-        AgentEntity entity = new AgentEntity();
+        AgentEntity entity = EntityDetails.getAgent();
         // TODO: 12-Jun-22 Logout 
         return loggedDatesService.logout(entity);
     }

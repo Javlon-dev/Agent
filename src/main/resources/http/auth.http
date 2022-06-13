@@ -1,0 +1,22 @@
+### Login - AGENT
+POST http://localhost:4000/api/v1/auth/login
+#Authorization: Basic qwerty $2a$10$Z2u7OEehMkZooVmORhaTyez7HtB11UXCp5.UagJEzrqZKeRaayUEu
+#Authorization: Basic SarvarGo Ph9GY9kP
+
+### Logout - AGENT
+POST http://localhost:4000/api/v1/auth/logout
+#Authorization: Basic qwerty $2a$10$Z2u7OEehMkZooVmORhaTyez7HtB11UXCp5.UagJEzrqZKeRaayUEu
+Authorization: Basic SarvarGo Ph9GY9kP
+
+### Registration - ADMIN
+POST http://localhost:4000/api/v1/auth/registration
+Authorization: Basic qwerty $2a$10$Z2u7OEehMkZooVmORhaTyez7HtB11UXCp5.UagJEzrqZKeRaayUEu
+
+
+### Profiles
+#
+#  "firstname": "Sarvar",
+#  "lastname": "Sarvarov",
+#  "nickname": "SarvarGo",
+#  "password": "Ph9GY9kP"
+#

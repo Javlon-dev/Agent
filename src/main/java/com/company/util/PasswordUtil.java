@@ -33,10 +33,12 @@ public class PasswordUtil {
 
         StringBuilder password = new StringBuilder(length);
 
-        if (length < 4) {
+        if (length > 4) {
             for (int i = 0; i < length - 4; i++) {
                 password.append(ALL[random.nextInt(ALL.length)]);
             }
+        }else {
+            password.append(ALL[random.nextInt(ALL.length)]);
         }
 
         password.insert(random.nextInt(password.length()), UPPER[random.nextInt(UPPER.length)]);

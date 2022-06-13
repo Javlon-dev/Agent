@@ -31,6 +31,10 @@ dependencies {
 
     //   swagger
     implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+
+    // commons-codec
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+
 }
 
 tasks.named('test') {

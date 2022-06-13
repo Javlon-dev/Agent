@@ -15,12 +15,12 @@ import java.util.Optional;
 
 public interface LoggedDatesRepository extends JpaRepository<LoggedDatesEntity, Long> {
 
-    @Query(value = "select a.firstname, a.lastname, a.nickname, " +
-            "l.loginDate, l.logoutDate " +
+    @Query(value = "select a.firstname as firstname, a.lastname as lastname, a.nickname as nickname, " +
+            "l.loginDate as loginDate, l.logoutDate as logoutDate " +
             "from LoggedDatesEntity as l " +
             "inner join l.agent as a " +
             "where a.nickname = :nickname ")
-    Page<LoggedDatesInfoMapper> findAllByAgent(String nickname, Pageable pageable);
+    Page<LoggedDatesInfoMapper> findAllByAgent(@Param("nickname") String nickname, Pageable pageable);
 
     Optional<LoggedDatesEntity> findByAgent_NicknameAndLogoutDateIsNull(String nickname);
 

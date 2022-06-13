@@ -1,15 +1,18 @@
 package com.company.service;
 
+import com.company.config.details.EntityDetails;
 import com.company.dto.AgentDTO;
 import com.company.dto.LoggedDatesDTO;
 import com.company.dto.request.AgentBioDTO;
 import com.company.dto.request.AgentRegistrationDTO;
 import com.company.entity.AgentEntity;
+import com.company.enums.ProfileRole;
 import com.company.exception.ItemAlreadyExistsException;
 import com.company.repository.AgentRepository;
 import com.company.util.PasswordUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,8 +26,6 @@ public class AgentService {
 
 
     private final AgentRepository agentRepository;
-
-    private final PasswordEncoder passwordEncoder;
 
     private final LoggedDatesService loggedDatesService;
 
@@ -41,9 +42,10 @@ public class AgentService {
         entity.setFirstname(dto.getFirstname());
         entity.setLastname(dto.getLastname());
         entity.setNickname(dto.getNickname());
+        entity.setRole(ProfileRole.ROLE_AGENT);
 
         String password = PasswordUtil.generatePassword();
-        entity.setPassword(passwordEncoder.encode(password + dto.getNickname()));
+        entity.setPassword(DigestUtils.sha256Hex(password + dto.getNickname()));
 
         agentRepository.save(entity);
 
@@ -53,12 +55,12 @@ public class AgentService {
     }
 
     public AgentDTO getInfo() {
-        AgentEntity entity = new AgentEntity();
+        AgentEntity entity = EntityDetails.getAgent();
         return toDTO(entity);
     }
 
     public AgentDTO updateBio(AgentBioDTO dto) {
-        AgentEntity entity = new AgentEntity();
+        AgentEntity entity = EntityDetails.getAgent();
         entity.setFirstname(dto.getFirstname());
         entity.setLastname(dto.getLastname());
 
@@ -68,7 +70,7 @@ public class AgentService {
     }
 
     public PageImpl<LoggedDatesDTO> pagination(int page, int size) {
-        AgentEntity entity = new AgentEntity();
+        AgentEntity entity = EntityDetails.getAgent();
 
         return loggedDatesService.pagination(page, size, entity.getNickname());
     }
