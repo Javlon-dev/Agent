@@ -35,6 +35,9 @@ dependencies {
     // commons-codec
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
 
+    //   jwt
+    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
 }
 
 tasks.named('test') {

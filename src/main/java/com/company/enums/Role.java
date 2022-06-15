@@ -1,5 +1,5 @@
 package com.company.enums;
 
-public enum ProfileRole {
+public enum Role {
     ROLE_ADMIN, ROLE_AGENT;
 }

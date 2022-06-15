@@ -1,11 +1,11 @@
 package com.company.entity;
 
-import com.company.enums.ProfileRole;
+import com.company.enums.Role;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "agent")
@@ -27,6 +27,15 @@ public class AgentEntity extends BaseEntity {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private ProfileRole role;
+    private Role role;
+
+    @Column
+    private String token;
+
+    @Column(name = "login_date")
+    private LocalDateTime loginDate;
+
+    @Column(name = "logout_date")
+    private LocalDateTime logoutDate;
 
 }

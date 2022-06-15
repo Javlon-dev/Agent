@@ -1,7 +1,7 @@
 package com.company.service.bin;
 
 import com.company.entity.ProfileEntity;
-import com.company.enums.ProfileRole;
+import com.company.enums.Role;
 import com.company.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +31,7 @@ public class AdminService {
         ProfileEntity entity = new ProfileEntity();
         entity.setEmail("ADMIN" + adminEmail);
         entity.setPassword(adminPassword);
-        entity.setRole(ProfileRole.ROLE_ADMIN);
+        entity.setRole(Role.ROLE_ADMIN);
 
         profileRepository.save(entity);
     }

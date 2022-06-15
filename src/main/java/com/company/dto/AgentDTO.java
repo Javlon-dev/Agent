@@ -18,9 +18,15 @@ public class AgentDTO {
 
     private String password;
 
+    private String token;
+
     public AgentDTO(String firstname, String lastname, String nickname) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.nickname = nickname;
+    }
+
+    public AgentDTO(String token) {
+        this.token = token;
     }
 }

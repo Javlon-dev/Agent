@@ -1,10 +1,12 @@
 package com.company.controller;
 
 import com.company.dto.AgentDTO;
+import com.company.dto.request.AgentLoginDTO;
 import com.company.dto.request.AgentRegistrationDTO;
 import com.company.service.AuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -27,23 +29,23 @@ public class AuthController {
     private final AuthService authService;
 
 
-    @ApiOperation(value = "Agent Registration", notes = "Method used for registration agent (for ADMIN)")
-    @PreAuthorize("hasRole('ADMIN')")
+    @ApiOperation(value = "Agent Registration", notes = "Method used for registration agent (for ADMIN)",
+            authorizations = @Authorization("JWT Token"))
     @PostMapping("/registration")
     public ResponseEntity<AgentDTO> agentRegistration(@RequestBody @Valid AgentRegistrationDTO dto) {
         log.info("Agent Registration {}", dto);
         return ResponseEntity.ok(authService.agentRegistration(dto));
     }
 
-    @ApiOperation(value = "Agent Login", notes = "Method used to login for agent only (for AGENT)")
-    @PreAuthorize("hasRole('AGENT')")
+    @ApiOperation(value = "Login", notes = "Method used to login and get token")
     @PostMapping("/login")
-    public ResponseEntity<Boolean> agentLogin() {
-        log.info("Agent Login");
-        return ResponseEntity.ok(authService.agentLogin());
+    public ResponseEntity<AgentDTO> agentLogin(@RequestBody @Valid AgentLoginDTO dto) {
+        log.info("Agent Login {}", dto);
+        return ResponseEntity.ok(authService.agentLogin(dto));
     }
 
-    @ApiOperation(value = "Agent Logout", notes = "Method used to logout for agent only (for AGENT)")
+    @ApiOperation(value = "Agent Logout", notes = "Method used to logout for agent only (for AGENT)",
+            authorizations = @Authorization("JWT Token"))
     @PreAuthorize("hasRole('AGENT')")
     @PostMapping("/logout")
     public ResponseEntity<Boolean> agentLogout() {

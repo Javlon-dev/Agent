@@ -1,13 +1,21 @@
 ### Agent Info - AGENT
-GET http://localhost:4000/api/v1/agent
+GET http://137.184.80.70:4000/api/v1/agent
+#GET http://localhost:4000/api/v1/agent
+#Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4YThhODIzNDgxNjVkODZjMDE4MTY1ZDhhMzgxMDAwMCIsImlhdCI6MTY1NTI3NTE5NSwiZXhwIjoxNjU1Mjc4Nzk1LCJyb2xlIjoiUk9MRV9BR0VOVCIsImlzcyI6IkFnZW50IFByb2R1Y3Rpb24ifQ.5uvaG2PpDbh4jr2UdWgI0Ec_TWmmqmFH8xUQ20yOKm0
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4YThhODIzNDgxNjVkODZjMDE4MTY1ZDhhMzgxMDAwMCIsImlhdCI6MTY1NTI3NTg3MCwiZXhwIjoxNjU1Mjc5NDcwLCJyb2xlIjoiUk9MRV9BR0VOVCIsImlzcyI6IkFnZW50IFByb2R1Y3Rpb24ifQ.uRbro5BWgTnlpSUhFYm1egkHuL98temjIbC-5fQXsaI
 
 ### Update Agent Bio - AGENT
-PUT http://localhost:4000/api/v1/agent/bio
+PUT http://137.184.80.70:4000/api/v1/agent/bio
+#PUT http://localhost:4000/api/v1/agent/bio
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4YThhODIzNDgxNjVkODZjMDE4MTY1ZDhhMzgxMDAwMCIsImlhdCI6MTY1NTI3NTE5NSwiZXhwIjoxNjU1Mjc4Nzk1LCJyb2xlIjoiUk9MRV9BR0VOVCIsImlzcyI6IkFnZW50IFByb2R1Y3Rpb24ifQ.5uvaG2PpDbh4jr2UdWgI0Ec_TWmmqmFH8xUQ20yOKm0
 
 {
-
+  "firstname": "QWERTY",
+  "lastname": "ASDFGH"
 }
 
 ### Get Agent Logs Date - AGENT
-GET http://localhost:4000/api/v1/agent/list
+GET http://137.184.80.70:4000/api/v1/agent/list
+#GET http://localhost:4000/api/v1/agent/list
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4YThhODIzNDgxNjVkODZjMDE4MTY1ZDhhMzgxMDAwMCIsImlhdCI6MTY1NTI3NTE5NSwiZXhwIjoxNjU1Mjc4Nzk1LCJyb2xlIjoiUk9MRV9BR0VOVCIsImlzcyI6IkFnZW50IFByb2R1Y3Rpb24ifQ.5uvaG2PpDbh4jr2UdWgI0Ec_TWmmqmFH8xUQ20yOKm0

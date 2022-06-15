@@ -1,22 +1,30 @@
-### Login - AGENT
-POST http://localhost:4000/api/v1/auth/login
-#Authorization: Basic qwerty $2a$10$Z2u7OEehMkZooVmORhaTyez7HtB11UXCp5.UagJEzrqZKeRaayUEu
-#Authorization: Basic SarvarGo Ph9GY9kP
+### Login - ANY
+POST http://137.184.80.70:4000/api/v1/auth/login
+#POST http://localhost:4000/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "nickname": "Agent",
+  "password": "SLzU8FD8"
+}
+
+### Login
+"firstname": "qwerty",
+"lastname": "asdfgh",
+"nickname": "Agent",
+"password": "SLzU8FD8"
 
 ### Logout - AGENT
-POST http://localhost:4000/api/v1/auth/logout
-#Authorization: Basic qwerty $2a$10$Z2u7OEehMkZooVmORhaTyez7HtB11UXCp5.UagJEzrqZKeRaayUEu
-Authorization: Basic SarvarGo Ph9GY9kP
+POST http://137.184.80.70:4000/api/v1/auth/logout
+#POST http://localhost:4000/api/v1/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4YThhODIzNDgxNjVkODZjMDE4MTY1ZDhhMzgxMDAwMCIsImlhdCI6MTY1NTI3NTE5NSwiZXhwIjoxNjU1Mjc4Nzk1LCJyb2xlIjoiUk9MRV9BR0VOVCIsImlzcyI6IkFnZW50IFByb2R1Y3Rpb24ifQ.5uvaG2PpDbh4jr2UdWgI0Ec_TWmmqmFH8xUQ20yOKm0
 
 ### Registration - ADMIN
-POST http://localhost:4000/api/v1/auth/registration
-Authorization: Basic qwerty $2a$10$Z2u7OEehMkZooVmORhaTyez7HtB11UXCp5.UagJEzrqZKeRaayUEu
+POST http://137.184.80.70:4000/api/v1/auth/registration
+#POST http://localhost:4000/api/v1/auth/registration
+Content-Type: application/json
+Authorization: Bearer
 
+{
+}
 
-### Profiles
-#
-#  "firstname": "Sarvar",
-#  "lastname": "Sarvarov",
-#  "nickname": "SarvarGo",
-#  "password": "Ph9GY9kP"
-#

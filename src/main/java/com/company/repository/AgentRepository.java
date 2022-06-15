@@ -16,11 +16,31 @@ public interface AgentRepository extends JpaRepository<AgentEntity, String> {
 
     Optional<AgentEntity> findByNicknameAndPassword(String nickname, String password);
 
+
     @Transactional
     @Modifying
     @Query("update AgentEntity set firstname = :firstname , lastname = :lastname where id = :id ")
     int updateBio(@Param("firstname") String firstname,
                   @Param("lastname") String lastname,
                   @Param("id") String id);
+
+    @Transactional
+    @Modifying
+    @Query("update AgentEntity set token = :token , loginDate = :date where id = :id ")
+    void updateTokenAndLogin(@Param("token") String token,
+                             @Param("date") LocalDateTime date,
+                             @Param("id") String id);
+
+    @Transactional
+    @Modifying
+    @Query("update AgentEntity set token = null , logoutDate = :date where id = :id ")
+    void updateLogout(@Param("date") LocalDateTime date,
+                      @Param("id") String id);
+
+    @Transactional
+    @Modifying
+    @Query("update AgentEntity set token = null , logoutDate = :date where token = :token ")
+    void updateToken(@Param("date") LocalDateTime date,
+                      @Param("token") String token);
 
 }
